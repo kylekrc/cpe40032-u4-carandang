@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
-    private float speed = 3.0f;
+{   
+    // This is for the enemy speed, yu can adjust it in the script
+    // or make it public so you can adjust it in the inspector
+    private float speed = 30.0f;
     private Rigidbody enemyRb;
     private GameObject player;
 
