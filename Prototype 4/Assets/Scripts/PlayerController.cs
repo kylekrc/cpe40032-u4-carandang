@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
     private GameObject focalPoint;
-    private float powerUpStrength = 15.0f;
-    private float speed = 5.0f;
+    private float powerUpStrength = 40.0f;
+    private float speed = 30.0f;
     public bool hasPowerup = false;
     public GameObject powerupIndicator;
 
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);
     }
-
+    // For when player collides with the powerup
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Powerup"))
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         hasPowerup = false;
         powerupIndicator.gameObject.SetActive(false);
     }
-
+    // For when player collides with enemy and also having the powerup
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy") && hasPowerup)
