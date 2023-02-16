@@ -21,8 +21,9 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Finds the object type Enemy and counts its length
         enemyCount = FindObjectsOfType<Enemy>().Length;
-
+        // If there are no more enemies, this spawns another wave
         if(enemyCount == 0)
         {
             waveNumber++;
@@ -30,15 +31,15 @@ public class SpawnManager : MonoBehaviour
             Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
         }
     }
-
+    // Code for Enemy Wave
     void SpawnEnemyWave(int enemiesToSpawn)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
     }
-
+    // Code for random spawn position
     private Vector3 GenerateSpawnPosition()
     {
         float spawnPosX = Random.Range(-spawnRange, spawnRange);
